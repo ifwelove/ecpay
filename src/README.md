@@ -1,16 +1,16 @@
-## Allpay
-### Allpay - Laravel 5 version
+## Ecpay
+### Ecpay - Laravel 5 version
 <br>
 
 **step 1 : Download the package**<br>
 composer命令安裝
 ```
-composer require scottchayaa/allpay dev-master
+composer require ifwelove/ecpay dev-master
 ```
 或者是新增package至composer.json
 ```
 "require": {
-  "scottchayaa/allpay": "dev-master"
+  "ifwelove/ecpay": "dev-master"
 },
 ```
 然後更新安裝
@@ -58,16 +58,16 @@ return [
 
 ---
 
-### How To Use 
+### How To Use
 ```php
-use Allpay;
+use Ecpay;
 ```
 ```php
 public function Demo()
 {
-    //Official Example : 
+    //Official Example :
     //https://github.com/allpay/PHP/blob/master/AioSDK/example/sample_Credit_CreateOrder.php
-    
+
     //基本參數(請依系統規劃自行調整)
     Allpay::i()->Send['ReturnURL']         = "http://www.allpay.com.tw/receive.php" ;
     Allpay::i()->Send['MerchantTradeNo']   = "Test".time() ;           //訂單編號
@@ -95,7 +95,7 @@ You Need to add Backslash '\' before PaymentMethod → I have no idea how to tak
 ---
 
 ### Example (Localhost)
-Example Link : 
+Example Link :
 http://localhost/[your-project]/public/allpay_demo_201608
 
 <br>
@@ -109,11 +109,11 @@ https://github.com/allpay/PHP/commit/e9278b9cad76e6a71608bee3f5f4289982cfe16f
 原本
 ```php
 static function CheckOutString($paymentButton,$target = "_self",$arParameters = array(),$arExtend = array(),$HashKey='',$HashIV='',$ServiceURL=''){
-    
+
     $arParameters = self::process($arParameters,$arExtend);
     //產生檢查碼
     $szCheckMacValue = CheckMacValue::generate($arParameters,$HashKey,$HashIV,$arParameters['EncryptType']);
-    
+
     $szHtml =  '<!DOCTYPE html>';
     $szHtml .= '<html>';
     $szHtml .=     '<head>';
@@ -135,11 +135,11 @@ static function CheckOutString($paymentButton,$target = "_self",$arParameters = 
 修正為
 ```php
 static function CheckOutString($paymentButton,$target = "_self",$arParameters = array(),$arExtend = array(),$HashKey='',$HashIV='',$ServiceURL=''){
-    
+
     $arParameters = self::process($arParameters,$arExtend);
     //產生檢查碼
     $szCheckMacValue = CheckMacValue::generate($arParameters,$HashKey,$HashIV,$arParameters['EncryptType']);
-    
+
     $szHtml =  '<!DOCTYPE html>';
     $szHtml .= '<html>';
     $szHtml .=     '<head>';
@@ -175,18 +175,18 @@ static function CheckOutString($paymentButton,$target = "_self",$arParameters = 
 原本
 ```php
 function CheckOutFeedback() {
-    return $arFeedback = CheckOutFeedback::CheckOut($_POST,$this->HashKey,$this->HashIV,0);   
+    return $arFeedback = CheckOutFeedback::CheckOut($_POST,$this->HashKey,$this->HashIV,0); 
 }
 ```
 修正為
 ```php
 function CheckOutFeedback($allPost = null) {
     if($allPost == null) $allPost = $_POST;
-    return $arFeedback = CheckOutFeedback::CheckOut($allPost,$this->HashKey,$this->HashIV,0);   
+    return $arFeedback = CheckOutFeedback::CheckOut($allPost,$this->HashKey,$this->HashIV,0);
 }
 ```
 歐付寶回傳頁面時會使用到這個方法<br>
-使用方法 ex: 
+使用方法 ex:
 ```php
 public function PayReturn(Request $request)
 {

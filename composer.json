@@ -1,0 +1,22 @@
+{
+    "name": "ifwelove/Ecpay",
+    "description": "Ecpay",
+    "type": "ecTool",
+    "keywords": ["ecpay"],
+    "authors": [
+        {
+            "name": "ifwelove",
+            "email": "a5963745@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "classmap": [
+            "src/lib"
+        ],
+        "psr-4": {
+            "Ifwelove\\Ecpay\\": "src/"
+        }
+    }
+}
