@@ -1,5 +1,5 @@
 <?php
-namespace ecPay;
+namespace Ecpay\Logistics;
 
 	/**
 	 * ECPay 物流 SDK 

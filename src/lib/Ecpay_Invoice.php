@@ -1,5 +1,5 @@
 <?php
-namespace ecPay;
+namespace Ecpay\Invoice;
 
 /*
 電子發票SDK

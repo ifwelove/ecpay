@@ -1,5 +1,4 @@
 <?php
-namespace ecPay;
 
 /**
  * 付款方式。
