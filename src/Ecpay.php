@@ -11,10 +11,10 @@ class Ecpay
     {
         $this->instance = new \ECPay_AllInOne();
 
-        $this->instance->ServiceURL = config('payment.ecpay.config.ServiceURL');
-        $this->instance->HashKey    = config('payment.ecpay.config.HashKey');
-        $this->instance->HashIV     = config('payment.ecpay.config.HashIV');
-        $this->instance->MerchantID = config('payment.ecpay.config.MerchantID');
+        $this->instance->ServiceURL = config('payment.driver.ecpay.config.ServiceURL');
+        $this->instance->HashKey    = config('payment.driver.ecpay.config.HashKey');
+        $this->instance->HashIV     = config('payment.driver.ecpay.config.HashIV');
+        $this->instance->MerchantID = config('payment.driver.ecpay.config.MerchantID');
     }
 
     public function instance()
